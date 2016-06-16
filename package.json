@@ -17,7 +17,7 @@
   },
   "scripts": {
     "install": "npm install -g browserify && npm install -g clean-css",
-    "start": "node bundler.js"
+    "build": "node lib/bundler.js"
   },
   "author": "",
   "license": "ISC"
