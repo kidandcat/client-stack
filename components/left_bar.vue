@@ -1,6 +1,6 @@
 <template>
     <div class="navbar">
-      LEft navigation panel
+      LEft navigation {{ message }}
     </div>
 </template>
 
@@ -8,8 +8,11 @@
     export default {
         data() {
             return {
-                buttons: 3
+                message: "paneeel"
             }
+        },
+        hello: function(){
+          console.log('hello');
         }
     }
 </script>

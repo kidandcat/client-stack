@@ -122,7 +122,14 @@ process.umask = function() { return 0; };
 },{}],2:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
 var __vueify_style__ = __vueify_insert__.insert("\nbody {\n  margin: 0;\n  padding: 0;\n  width: 100%;\n  height: 100%;\n}\n")
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<top-bar></top-bar>\n"
+
+
+// window.onload = function(){
+//   console.log('this ', App);
+// }
+"use strict";
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<topbar></topbar>\n<leftbar></leftbar>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -137,7 +144,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-341016c4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":6,"vueify/lib/insert-css":8}],3:[function(require,module,exports){
+},{"vue":8,"vue-hot-reload-api":7,"vueify/lib/insert-css":9}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -146,23 +153,27 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
     data: function data() {
         return {
-            buttons: 3
+            message: "paneeel"
         };
+    },
+
+    hello: function hello() {
+        console.log('hello');
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"navbar\">\n  LEft navigation panel\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"navbar\">\n  LEft navigation {{ message }}\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-10e775ba", module.exports)
+    hotAPI.createRecord("_v-5ae23948", module.exports)
   } else {
-    hotAPI.update("_v-10e775ba", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-5ae23948", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":6}],4:[function(require,module,exports){
+},{"vue":8,"vue-hot-reload-api":7}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -182,36 +193,47 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-5a5e11be", module.exports)
+    hotAPI.createRecord("_v-b74e5568", module.exports)
   } else {
-    hotAPI.update("_v-5a5e11be", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-b74e5568", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":6}],5:[function(require,module,exports){
-var Vue = require('vue')
+},{"vue":8,"vue-hot-reload-api":7}],5:[function(require,module,exports){
+var Vue = require('vue');
 
 
 
 // COMPONENTS
 //left-bar
-var left_bar = require('../components/left-bar.vue');
-Vue.component('left-bar', left_bar);
+//var left_bar = require('../components/left_bar.vue');
+Vue.component('leftbar', require('../components/left_bar.vue'));
 //top-bar
-var top_bar = require('../components/top-bar.vue');
-Vue.component('top-bar', top_bar);
+//var top_bar = require('../components/top_bar.vue');
+Vue.component('topbar', require('../components/top_bar.vue'));
 
 
 
 //Main component, app
-var app = require('../components/app.vue');
-new Vue({
+var appp = require('../components/app.vue');
+App = new Vue({
     el: 'body',
     components: {
-        app: app
+        app: appp
     }
 })
 
-},{"../components/app.vue":2,"../components/left-bar.vue":3,"../components/top-bar.vue":4,"vue":7}],6:[function(require,module,exports){
+App.components = App.$children[0].$children;
+
+
+//Start custom logic
+require('./main.js');
+
+},{"../components/app.vue":2,"../components/left_bar.vue":3,"../components/top_bar.vue":4,"./main.js":6,"vue":8}],6:[function(require,module,exports){
+console.log('mainJS');
+console.log('App: ', App);
+console.log('Components: ', App.components);
+
+},{}],7:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -511,7 +533,7 @@ function format (id) {
   return id.match(/[^\/]+\.vue$/)[0]
 }
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v1.0.24
@@ -10544,7 +10566,7 @@ setTimeout(function () {
 
 module.exports = Vue;
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":1}],8:[function(require,module,exports){
+},{"_process":1}],9:[function(require,module,exports){
 var inserted = exports.cache = {}
 
 exports.insert = function (css) {
