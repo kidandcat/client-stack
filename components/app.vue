@@ -8,12 +8,5 @@
 </style>
 
 <template>
-    <topbar></topbar>
-    <leftbar></leftbar>
+    <router-view></router-view>
 </template>
-
-<script>
-// window.onload = function(){
-//   console.log('this ', App);
-// }
-</script>

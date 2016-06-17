@@ -1,6 +1,6 @@
 <template>
     <div class="navbar">
-      LEft navigation {{ message }}
+      Left navigation {{ message }}
     </div>
 </template>
 
